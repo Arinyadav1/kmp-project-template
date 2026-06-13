@@ -13,12 +13,8 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import cmp.navigation.generated.resources.Res
 import cmp.navigation.generated.resources.home
 import cmp.navigation.generated.resources.profile
-import cmp.navigation.utils.toObjectNavigationRoute
 import kpt.core.designsystem.icon.AppIcons
 import kpt.core.ui.NavigationItem
-import kpt.feature.home.HomeDestination
-import kpt.feature.home.HomeRoute
-import kpt.feature.profile.ProfileRoute
 import org.jetbrains.compose.resources.StringResource
 
 sealed class AuthenticatedNavBarTabItem : NavigationItem {
@@ -32,10 +28,11 @@ sealed class AuthenticatedNavBarTabItem : NavigationItem {
             get() = Res.string.home
         override val contentDescriptionRes: StringResource
             get() = Res.string.home
-        override val graphRoute: String
-            get() = HomeDestination.toObjectNavigationRoute()
-        override val startDestinationRoute: String
-            get() = HomeRoute.toObjectNavigationRoute()
+
+//        override val graphRoute: String
+//            get() = HomeDestination.toObjectNavigationRoute()
+//        override val startDestinationRoute: String
+//            get() = HomeRoute.toObjectNavigationRoute()
         override val testTag: String
             get() = "HomeTab"
     }
@@ -49,10 +46,11 @@ sealed class AuthenticatedNavBarTabItem : NavigationItem {
             get() = Res.string.profile
         override val contentDescriptionRes: StringResource
             get() = Res.string.profile
-        override val graphRoute: String
-            get() = ProfileRoute.toObjectNavigationRoute()
-        override val startDestinationRoute: String
-            get() = ProfileRoute.toObjectNavigationRoute()
+
+//        override val graphRoute: String
+//            get() = ProfileRoute.toObjectNavigationRoute()
+//        override val startDestinationRoute: String
+//            get() = ProfileRoute.toObjectNavigationRoute()
         override val testTag: String
             get() = "ProfileTab"
     }

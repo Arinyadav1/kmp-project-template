@@ -19,68 +19,47 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavBackStackEntry
-import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
-import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
-import androidx.navigation.NavOptions
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.currentBackStackEntryAsState
-import androidx.navigation.navOptions
 import cmp.navigation.ui.KptRootScaffold
 import cmp.navigation.ui.ScaffoldNavigationData
-import cmp.navigation.ui.logDestinationChanged
 import cmp.navigation.ui.rememberKptNavController
 import kotlinx.collections.immutable.persistentListOf
-import kpt.core.base.analytics.rememberAnalyticsHelper
 import kpt.core.base.designsystem.theme.motion
 import kpt.core.base.ui.effects.EventsEffect
 import kpt.core.base.ui.util.RootTransitionProviders
 import kpt.core.ui.NavigationItem
 import kpt.feature.home.HomeDestination
 import kpt.feature.home.homeGraph
-import kpt.feature.home.navigateToHome
-import kpt.feature.profile.navigateToProfile
-import kpt.feature.profile.profileDestination
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 internal fun AuthenticatedNavbarNavigationScreen(
-    navigateToSettingsScreen: () -> Unit,
-    navigateToLoans: () -> Unit,
-    navigateToBills: () -> Unit,
-    navigateToRates: () -> Unit,
-    navigateToExchangeRates: () -> Unit,
-    navigateToRateHistory: () -> Unit,
-    navigateToMacro: () -> Unit,
-    navigateToEmi: () -> Unit,
-    navigateToAffordability: () -> Unit,
-    navigateToAmortization: () -> Unit,
-    navigateToLoanComparison: () -> Unit,
-    navigateToLoanCalcWizard: () -> Unit,
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberKptNavController(
         name = "AuthenticatedNavbarScreen",
     ),
     viewModel: AuthenticatedNavbarNavigationViewModel = koinViewModel(),
 ) {
-    val analyticsHelper = rememberAnalyticsHelper()
+//    val analyticsHelper = rememberAnalyticsHelper()
 
     EventsEffect(eventFlow = viewModel.eventFlow) { event ->
         navController.apply {
             when (event) {
                 AuthenticatedNavBarEvent.NavigateToHomeScreen -> {
-                    analyticsHelper.logDestinationChanged(event.tab.startDestinationRoute)
-                    navigateToTabOrRoot(tabToNavigateTo = event.tab) {
-                        navigateToHome(navOptions = it)
-                    }
+//                    analyticsHelper.logDestinationChanged(event.tab.startDestinationRoute)
+//                    navigateToTabOrRoot(tabToNavigateTo = event.tab) {
+//                        navigateToHome(navOptions = it)
+//                    }
                 }
 
                 AuthenticatedNavBarEvent.NavigateToProfileScreen -> {
-                    analyticsHelper.logDestinationChanged(event.tab.startDestinationRoute)
-                    navigateToTabOrRoot(tabToNavigateTo = event.tab) {
-                        navigateToProfile(navOptions = it)
-                    }
+//                    analyticsHelper.logDestinationChanged(event.tab.startDestinationRoute)
+//                    navigateToTabOrRoot(tabToNavigateTo = event.tab) {
+// //                        navigateToProfile(navOptions = it)
+//                    }
                 }
             }
         }
@@ -89,18 +68,6 @@ internal fun AuthenticatedNavbarNavigationScreen(
     AuthenticatedNavbarNavigationScreenContent(
         navController = navController,
         modifier = modifier,
-        navigateToSettingsScreen = navigateToSettingsScreen,
-        navigateToLoans = navigateToLoans,
-        navigateToBills = navigateToBills,
-        navigateToRates = navigateToRates,
-        navigateToExchangeRates = navigateToExchangeRates,
-        navigateToRateHistory = navigateToRateHistory,
-        navigateToMacro = navigateToMacro,
-        navigateToEmi = navigateToEmi,
-        navigateToAffordability = navigateToAffordability,
-        navigateToAmortization = navigateToAmortization,
-        navigateToLoanComparison = navigateToLoanComparison,
-        navigateToLoanCalcWizard = navigateToLoanCalcWizard,
         onAction = remember(viewModel) {
             { viewModel.trySendAction(it) }
         },
@@ -110,18 +77,6 @@ internal fun AuthenticatedNavbarNavigationScreen(
 @Composable
 internal fun AuthenticatedNavbarNavigationScreenContent(
     navController: NavHostController,
-    navigateToSettingsScreen: () -> Unit,
-    navigateToLoans: () -> Unit,
-    navigateToBills: () -> Unit,
-    navigateToRates: () -> Unit,
-    navigateToExchangeRates: () -> Unit,
-    navigateToRateHistory: () -> Unit,
-    navigateToMacro: () -> Unit,
-    navigateToEmi: () -> Unit,
-    navigateToAffordability: () -> Unit,
-    navigateToAmortization: () -> Unit,
-    navigateToLoanComparison: () -> Unit,
-    navigateToLoanCalcWizard: () -> Unit,
     modifier: Modifier = Modifier,
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onAction: (AuthenticatedNavBarAction) -> Unit,
@@ -137,7 +92,7 @@ internal fun AuthenticatedNavbarNavigationScreenContent(
         navigationData = ScaffoldNavigationData(
             navigationItems = navigationItems,
             selectedNavigationItem = navigationItems.find {
-                navBackStackEntry.isCurrentRoute(route = it.graphRoute)
+                navBackStackEntry.isCurrentRoute(route = "")
             },
             onNavigationClick = { navigationItem ->
                 when (navigationItem) {
@@ -151,7 +106,7 @@ internal fun AuthenticatedNavbarNavigationScreenContent(
                 }
             },
             shouldShowNavigation = navigationItems.any {
-                navBackStackEntry.isCurrentRoute(route = it.startDestinationRoute)
+                navBackStackEntry.isCurrentRoute(route = "")
             },
         ),
         snackbarHost = {
@@ -175,46 +130,31 @@ internal fun AuthenticatedNavbarNavigationScreenContent(
             popExitTransition = RootTransitionProviders.Kpt.Exit.fadeThrough(motion),
         ) {
             // TOP LEVEL DESTINATIONS
-            homeGraph(
-                onSettingsClick = navigateToSettingsScreen,
-                onNavigateToLoans = navigateToLoans,
-                onNavigateToBills = navigateToBills,
-                onNavigateToRates = navigateToRates,
-                onNavigateToExchangeRates = navigateToExchangeRates,
-                onNavigateToRateHistory = navigateToRateHistory,
-                onNavigateToMacro = navigateToMacro,
-                onNavigateToEmi = navigateToEmi,
-                onNavigateToAffordability = navigateToAffordability,
-                onNavigateToAmortization = navigateToAmortization,
-                onNavigateToLoanComparison = navigateToLoanComparison,
-                onNavigateToLoanCalcWizard = navigateToLoanCalcWizard,
-            )
-
-            profileDestination()
+            homeGraph()
         }
     }
 }
 
-private fun NavController.navigateToTabOrRoot(
-    tabToNavigateTo: AuthenticatedNavBarTabItem,
-    navigate: (NavOptions) -> Unit,
-) {
-    if (tabToNavigateTo.startDestinationRoute == currentDestination?.route) {
-        return
-    } else if (currentDestination?.parent?.route == tabToNavigateTo.graphRoute) {
-        popBackStack(route = tabToNavigateTo.startDestinationRoute, inclusive = false)
-    } else {
-        navigate(
-            navOptions {
-                popUpTo(graph.findStartDestination().id) {
-                    saveState = true
-                }
-                launchSingleTop = true
-                restoreState = true
-            },
-        )
-    }
-}
+// private fun NavController.navigateToTabOrRoot(
+//    tabToNavigateTo: AuthenticatedNavBarTabItem,
+//    navigate: (NavOptions) -> Unit,
+// ) {
+//    if (tabToNavigateTo.startDestinationRoute == currentDestination?.route) {
+//        return
+//    } else if (currentDestination?.parent?.route == tabToNavigateTo.graphRoute) {
+//        popBackStack(route = tabToNavigateTo.startDestinationRoute, inclusive = false)
+//    } else {
+//        navigate(
+//            navOptions {
+//                popUpTo(graph.findStartDestination().id) {
+//                    saveState = true
+//                }
+//                launchSingleTop = true
+//                restoreState = true
+//            },
+//        )
+//    }
+// }
 
 private fun NavBackStackEntry?.isCurrentRoute(route: String): Boolean = this
     ?.destination

@@ -51,7 +51,6 @@ internal fun Project.configureKotlinMultiplatform() {
         }
 
         targets.withType(KotlinMultiplatformAndroidLibraryTarget::class.java).configureEach {
-            @Suppress("UnstableApiUsage")
             experimentalProperties["android.experimental.kmp.enableAndroidResources"] = true
         }
     }

@@ -24,34 +24,8 @@ internal fun NavController.navigateToAuthenticatedNavBar(navOptions: NavOptions?
     navigate(route = AuthenticatedNavbarRoute, navOptions = navOptions)
 }
 
-internal fun NavGraphBuilder.authenticatedNavbarGraph(
-    navigateToSettingsScreen: () -> Unit,
-    navigateToLoans: () -> Unit,
-    navigateToBills: () -> Unit,
-    navigateToRates: () -> Unit,
-    navigateToExchangeRates: () -> Unit,
-    navigateToRateHistory: () -> Unit,
-    navigateToMacro: () -> Unit,
-    navigateToEmi: () -> Unit,
-    navigateToAffordability: () -> Unit,
-    navigateToAmortization: () -> Unit,
-    navigateToLoanComparison: () -> Unit,
-    navigateToLoanCalcWizard: () -> Unit,
-) {
+internal fun NavGraphBuilder.authenticatedNavbarGraph() {
     composableWithStayTransitions<AuthenticatedNavbarRoute> {
-        AuthenticatedNavbarNavigationScreen(
-            navigateToSettingsScreen = navigateToSettingsScreen,
-            navigateToLoans = navigateToLoans,
-            navigateToBills = navigateToBills,
-            navigateToRates = navigateToRates,
-            navigateToExchangeRates = navigateToExchangeRates,
-            navigateToRateHistory = navigateToRateHistory,
-            navigateToMacro = navigateToMacro,
-            navigateToEmi = navigateToEmi,
-            navigateToAffordability = navigateToAffordability,
-            navigateToAmortization = navigateToAmortization,
-            navigateToLoanComparison = navigateToLoanComparison,
-            navigateToLoanCalcWizard = navigateToLoanCalcWizard,
-        )
+        AuthenticatedNavbarNavigationScreen()
     }
 }

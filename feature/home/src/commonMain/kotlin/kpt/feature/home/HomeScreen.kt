@@ -84,18 +84,6 @@ import org.koin.compose.viewmodel.koinViewModel
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun HomeScreen(
-    onSettingsClick: () -> Unit,
-    onNavigateToLoans: () -> Unit,
-    onNavigateToBills: () -> Unit,
-    onNavigateToRates: () -> Unit,
-    onNavigateToExchangeRates: () -> Unit,
-    onNavigateToRateHistory: () -> Unit,
-    onNavigateToMacro: () -> Unit,
-    onNavigateToEmi: () -> Unit,
-    onNavigateToAffordability: () -> Unit,
-    onNavigateToAmortization: () -> Unit,
-    onNavigateToLoanComparison: () -> Unit,
-    onNavigateToLoanCalcWizard: () -> Unit,
     viewModel: HomeViewModel = koinViewModel(),
 ) {
     val state by viewModel.stateFlow.collectAsStateWithLifecycle()
@@ -115,7 +103,7 @@ internal fun HomeScreen(
                     )
                 },
                 actions = {
-                    IconButton(onClick = onSettingsClick) {
+                    IconButton(onClick = {}) {
                         Icon(
                             imageVector = Icons.Filled.Settings,
                             contentDescription = "Settings",
@@ -145,28 +133,28 @@ internal fun HomeScreen(
             HeroSnapshot(state.loans)
 
             // ── Loans carousel — scroll through every active loan ────────────
-            LoansCarousel(state.loans, onLoanClick = onNavigateToLoans)
+            LoansCarousel(state.loans, onLoanClick = {})
 
             // ── Quick stats grid (Bills + Rates) ─────────────────────────────
             SectionHeader(title = "This week")
 
             BillsQuickCard(
                 state = state.bills,
-                onSeeAll = onNavigateToBills,
+                onSeeAll = {},
             )
 
             RatesQuickCard(
                 state = state.rates,
                 freshness = ratesFreshness,
                 onRetry = { viewModel.trySendAction(HomeAction.RetryRates) },
-                onSeeAll = onNavigateToRates,
+                onSeeAll = {},
             )
 
             ExchangeRateCard(
                 state = state.exchangeRate,
                 freshness = exchangeFreshness,
                 onRetry = { viewModel.trySendAction(HomeAction.RetryExchangeRate) },
-                onSeeAll = onNavigateToExchangeRates,
+                onSeeAll = {},
             )
 
             // ── Tools grid ───────────────────────────────────────────────────
@@ -178,49 +166,49 @@ internal fun HomeScreen(
                 title = "EMI Calculator",
                 subtitle = "Monthly payment for any loan",
                 icon = Icons.Default.Calculate,
-                onClick = onNavigateToEmi,
+                onClick = {},
             )
             FeatureRow(
                 title = "Affordability",
                 subtitle = "How much can I borrow safely?",
                 icon = Icons.Default.Savings,
-                onClick = onNavigateToAffordability,
+                onClick = {},
             )
             FeatureRow(
                 title = "Amortization",
                 subtitle = "Full payment schedule",
                 icon = Icons.AutoMirrored.Default.TrendingUp,
-                onClick = onNavigateToAmortization,
+                onClick = {},
             )
             FeatureRow(
                 title = "Compare Loans",
                 subtitle = "Side-by-side total cost",
                 icon = Icons.Default.Compare,
-                onClick = onNavigateToLoanComparison,
+                onClick = {},
             )
             FeatureRow(
                 title = "Loan Wizard",
                 subtitle = "Step-by-step planner",
                 icon = Icons.Default.Tune,
-                onClick = onNavigateToLoanCalcWizard,
+                onClick = {},
             )
             FeatureRow(
                 title = "Currency Rates",
                 subtitle = "Live exchange rates",
                 icon = Icons.Default.CurrencyExchange,
-                onClick = onNavigateToExchangeRates,
+                onClick = {},
             )
             FeatureRow(
                 title = "Rate History",
                 subtitle = "Historical FX charts",
                 icon = Icons.AutoMirrored.Default.ReceiptLong,
-                onClick = onNavigateToRateHistory,
+                onClick = {},
             )
             FeatureRow(
                 title = "Country Macro",
                 subtitle = "GDP, CPI, unemployment",
                 icon = Icons.Default.Public,
-                onClick = onNavigateToMacro,
+                onClick = {},
             )
 
             Spacer(Modifier.height(sp.lg))

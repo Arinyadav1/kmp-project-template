@@ -3,11 +3,11 @@ buildkonfig = "0.21.2"
 kmpProductFlavors = "2.4.2"
 
 # ── Fork Identity — edit ONLY these 6 lines, then run ./gradlew syncForkConfig ──────────────────
-appId            = "org.mifos.kmp.template"   # Android applicationId + iOS bundle ID
-appDisplayName   = "Money Toolkit"             # Android app_name, iOS CFBundleDisplayName
-baseNamespace    = "kpt"                       # prefix for all module R-class namespaces
-desktopAppName   = "Money Toolkit"             # JVM package name, dock name
-projectName      = "kmp-project-template"      # rootProject.name, Fastlane PROJECT_NAME
+appId            = "org.mifos.save"   # Android applicationId + iOS bundle ID
+appDisplayName   = "Mifos Save"             # Android app_name, iOS CFBundleDisplayName
+baseNamespace    = "mifos"                       # prefix for all module R-class namespaces
+desktopAppName   = "Mifos Save"             # JVM package name, dock name
+projectName      = "mifos-save-mobile-app"      # rootProject.name, Fastlane PROJECT_NAME
 iosTeamId        = "L432S2FZP5"               # Apple Developer Team ID
 # ─────────────────────────────────────────────────────────────────────────────────────────────────
 # Android

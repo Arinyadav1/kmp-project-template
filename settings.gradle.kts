@@ -116,7 +116,7 @@ include(":core:store")
 include(":core:ui")
 
 include(":feature:home")
-//include(":feature:profile")
+include(":feature:profile")
 //include(":feature:settings")
 //include(":feature:showcase")
 //include(":feature:currency-rates")

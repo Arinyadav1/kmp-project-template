@@ -9,7 +9,7 @@
  */
 @file:Suppress("InvalidPackageDeclaration")
 
-package kpt.core.base.analytics.di
+package mifos.core.base.analytics.di
 
 import dev.gitlive.firebase.Firebase
 import dev.gitlive.firebase.analytics.FirebaseAnalytics
@@ -17,8 +17,8 @@ import dev.gitlive.firebase.analytics.analytics
 import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
-import kpt.core.base.analytics.AnalyticsHelper
-import kpt.core.base.analytics.FirebaseAnalyticsHelper
+import mifos.core.base.analytics.AnalyticsHelper
+import mifos.core.base.analytics.FirebaseAnalyticsHelper
 
 actual val analyticsModule = module {
     single<FirebaseAnalytics> { Firebase.analytics }

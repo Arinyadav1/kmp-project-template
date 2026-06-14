@@ -12,18 +12,18 @@ package cmp.navigation.di
 import cmp.navigation.AppViewModel
 import cmp.navigation.authenticatednavbar.AuthenticatedNavbarNavigationViewModel
 import cmp.navigation.rootnav.RootNavViewModel
-import kpt.core.analytics.di.coreAnalyticsModule
-import kpt.core.base.analytics.di.analyticsModule
-import kpt.core.base.common.di.CommonModule
-import kpt.core.base.platform.di.platformModule
-import kpt.core.base.security.di.SecurityModule
-import kpt.core.data.di.DataModule
-import kpt.core.database.di.DatabaseModule
-import kpt.core.datastore.di.DatastoreModule
-import kpt.core.store.di.appStoreModule
-import kpt.feature.home.di.HomeModule
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.module
+import org.mifos.core.analytics.di.coreAnalyticsModule
+import org.mifos.core.base.analytics.di.analyticsModule
+import org.mifos.core.base.common.di.CommonModule
+import org.mifos.core.base.platform.di.platformModule
+import org.mifos.core.base.security.di.SecurityModule
+import org.mifos.core.data.di.DataModule
+import org.mifos.core.database.di.DatabaseModule
+import org.mifos.core.datastore.di.DatastoreModule
+import org.mifos.core.store.di.appStoreModule
+import org.mifos.feature.home.di.HomeModule
 
 object KoinModules {
     private val dataModule = module {

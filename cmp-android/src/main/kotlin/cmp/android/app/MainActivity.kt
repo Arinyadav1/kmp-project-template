@@ -23,14 +23,13 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import cmp.shared.SharedApp
 import io.github.vinceglb.filekit.FileKit
 import io.github.vinceglb.filekit.dialogs.init
-import kpt.core.base.analytics.AnalyticsHelper
-import kpt.core.base.analytics.lifecycleTracker
-import kpt.core.base.platform.update.AppUpdateManager
-import kpt.core.base.platform.update.AppUpdateManagerImpl
-import kpt.core.base.ui.util.ShareUtils
-import kpt.core.data.infra.NetworkMonitor
-import kpt.core.data.user.UserDataRepository
 import org.koin.android.ext.android.inject
+import org.mifos.core.base.analytics.AnalyticsHelper
+import org.mifos.core.base.analytics.lifecycleTracker
+import org.mifos.core.base.platform.update.AppUpdateManagerImpl
+import org.mifos.core.base.ui.util.ShareUtils.setActivityProvider
+import org.mifos.core.data.infra.NetworkMonitor
+import org.mifos.core.data.user.UserDataRepository
 import org.mifos.save.BuildConfig
 import java.util.Locale
 
@@ -44,7 +43,7 @@ import java.util.Locale
 @Suppress("UnusedPrivateProperty")
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var appUpdateManager: AppUpdateManager
+    private lateinit var appUpdateManager: org.mifos.core.base.platform.update.AppUpdateManager
 
     private val userPreferencesRepository: UserDataRepository by inject()
 
@@ -64,7 +63,7 @@ class MainActivity : AppCompatActivity() {
 
         setupEdgeToEdge(darkThemeConfigFlow)
 
-        ShareUtils.setActivityProvider { return@setActivityProvider this }
+        setActivityProvider { return@setActivityProvider this }
         FileKit.init(this)
 
         analyticsHelper.setUserId(deviceData)

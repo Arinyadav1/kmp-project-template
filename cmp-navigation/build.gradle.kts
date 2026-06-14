@@ -30,6 +30,7 @@ kotlin {
             implementation(projects.coreBase.security)
 
             implementation(projects.feature.home)
+            implementation(projects.feature.profile)
 
             //put your multiplatform dependencies here
             implementation(compose.material3)

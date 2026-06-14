@@ -42,5 +42,5 @@ kotlin {
 compose.resources {
     publicResClass = true
     generateResClass = always
-    packageOfResClass = "kpt.core.store.generated.resources"
+    packageOfResClass = "org.mifos.core.store.generated.resources"
 }

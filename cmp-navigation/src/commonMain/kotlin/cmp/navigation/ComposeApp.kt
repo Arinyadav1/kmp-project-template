@@ -15,9 +15,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import cmp.navigation.rootnav.RootNavScreen
-import kpt.core.base.ui.effects.EventsEffect
-import kpt.core.designsystem.theme.KptTheme
 import org.koin.compose.viewmodel.koinViewModel
+import org.mifos.core.base.ui.effects.EventsEffect
+import org.mifos.core.designsystem.theme.KptTheme
 
 @Composable
 fun ComposeApp(

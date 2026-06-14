@@ -27,7 +27,7 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.conflate
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
-import kpt.core.model.user.DarkThemeConfig
+import org.mifos.core.model.user.DarkThemeConfig
 
 @ColorInt
 private val SCRIM_COLOR: Int = Color.TRANSPARENT
@@ -39,7 +39,7 @@ private val SCRIM_COLOR: Int = Color.TRANSPARENT
  * [here](https://github.com/android/nowinandroid/blob/689ef92e41427ab70f82e2c9fe59755441deae92/app/src/main/kotlin/com/google/samples/apps/nowinandroid/MainActivity.kt#L94).
  */
 @Suppress("MaxLineLength")
-fun ComponentActivity.setupEdgeToEdge(appThemeFlow: Flow<DarkThemeConfig>) {
+fun ComponentActivity.setupEdgeToEdge(appThemeFlow: Flow<org.mifos.core.model.user.DarkThemeConfig>) {
     lifecycleScope.launch {
         lifecycle.repeatOnLifecycle(state = Lifecycle.State.STARTED) {
             combine(

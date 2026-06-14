@@ -18,11 +18,10 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import kpt.core.base.platform.garbage.GarbageCollectionManager
-import kpt.core.base.ui.viewmodel.BaseViewModel
-import kpt.core.data.user.UserDataRepository
-import kpt.core.model.user.DarkThemeConfig
-import kpt.core.model.user.LanguageConfig
+import org.mifos.core.base.platform.garbage.GarbageCollectionManager
+import org.mifos.core.base.ui.viewmodel.BaseViewModel
+import org.mifos.core.data.user.UserDataRepository
+import org.mifos.core.model.user.DarkThemeConfig
 
 class AppViewModel(
     private val settingsRepository: UserDataRepository,
@@ -132,7 +131,7 @@ sealed interface AppEvent {
 }
 
 sealed interface AppAction {
-    data class AppSpecificLanguageUpdate(val appLanguage: LanguageConfig) : AppAction
+    data class AppSpecificLanguageUpdate(val appLanguage: org.mifos.core.model.user.LanguageConfig) : AppAction
 
     sealed class Internal : AppAction {
 
@@ -143,7 +142,7 @@ sealed interface AppAction {
         ) : Internal()
 
         data class ThemeUpdate(
-            val theme: DarkThemeConfig,
+            val theme: org.mifos.core.model.user.DarkThemeConfig,
         ) : Internal()
 
         data object UserUnlockStateChange : Internal()

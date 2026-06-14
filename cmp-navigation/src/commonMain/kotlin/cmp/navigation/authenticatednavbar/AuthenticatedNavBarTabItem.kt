@@ -13,9 +13,13 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import cmp.navigation.generated.resources.Res
 import cmp.navigation.generated.resources.home
 import cmp.navigation.generated.resources.profile
-import kpt.core.designsystem.icon.AppIcons
-import kpt.core.ui.NavigationItem
+import cmp.navigation.utils.toObjectNavigationRoute
 import org.jetbrains.compose.resources.StringResource
+import org.mifos.core.designsystem.icon.AppIcons
+import org.mifos.core.ui.NavigationItem
+import org.mifos.feature.home.HomeDestination
+import org.mifos.feature.home.HomeRoute
+import org.mifos.feature.profile.ProfileRoute
 
 sealed class AuthenticatedNavBarTabItem : NavigationItem {
 
@@ -28,11 +32,10 @@ sealed class AuthenticatedNavBarTabItem : NavigationItem {
             get() = Res.string.home
         override val contentDescriptionRes: StringResource
             get() = Res.string.home
-
-//        override val graphRoute: String
-//            get() = HomeDestination.toObjectNavigationRoute()
-//        override val startDestinationRoute: String
-//            get() = HomeRoute.toObjectNavigationRoute()
+        override val graphRoute: String
+            get() = HomeDestination.toObjectNavigationRoute()
+        override val startDestinationRoute: String
+            get() = HomeRoute.toObjectNavigationRoute()
         override val testTag: String
             get() = "HomeTab"
     }
@@ -46,11 +49,10 @@ sealed class AuthenticatedNavBarTabItem : NavigationItem {
             get() = Res.string.profile
         override val contentDescriptionRes: StringResource
             get() = Res.string.profile
-
-//        override val graphRoute: String
-//            get() = ProfileRoute.toObjectNavigationRoute()
-//        override val startDestinationRoute: String
-//            get() = ProfileRoute.toObjectNavigationRoute()
+        override val graphRoute: String
+            get() = ProfileRoute.toObjectNavigationRoute()
+        override val startDestinationRoute: String
+            get() = ProfileRoute.toObjectNavigationRoute()
         override val testTag: String
             get() = "ProfileTab"
     }

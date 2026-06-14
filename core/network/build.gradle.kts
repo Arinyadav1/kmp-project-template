@@ -24,7 +24,7 @@ val localProps = Properties().apply {
 }
 
 buildkonfig {
-    packageName = "kpt.core.network"
+    packageName = "org.mifos.core.network"
     defaultConfigs {
         buildConfigField(
             STRING, "FRED_API_KEY",

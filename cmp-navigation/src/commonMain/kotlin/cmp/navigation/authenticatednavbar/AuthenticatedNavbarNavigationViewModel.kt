@@ -9,8 +9,7 @@
  */
 package cmp.navigation.authenticatednavbar
 
-import kpt.core.base.ui.viewmodel.BaseViewModel
-import kpt.core.model.user.UserData
+import org.mifos.core.base.ui.viewmodel.BaseViewModel
 
 internal class AuthenticatedNavbarNavigationViewModel :
     BaseViewModel<Unit, AuthenticatedNavBarEvent, AuthenticatedNavBarAction>(
@@ -47,7 +46,7 @@ internal sealed class AuthenticatedNavBarAction {
     data object SettingsTabClick : AuthenticatedNavBarAction()
 
     sealed class Internal : AuthenticatedNavBarAction() {
-        data class UserStateUpdateReceive(val userState: UserData?) : Internal()
+        data class UserStateUpdateReceive(val userState: org.mifos.core.model.user.UserData?) : Internal()
     }
 }
 

@@ -24,9 +24,9 @@ kotlin {
             api(projects.coreBase.ui)
 
             // Compose runtime — needed for the @Composable appScreenStateDefaults() factory.
-            implementation(compose.runtime)
+            implementation(libs.jb.composeRuntime)
             // compose-resources — for stringResource()-based ScreenState copy (i18n).
-            implementation(compose.components.resources)
+            implementation(libs.jb.componentsResources)
 
             implementation(projects.core.database)
             implementation(projects.core.model)

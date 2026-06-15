@@ -1,5 +1,7 @@
 [versions]
 buildkonfig = "0.21.2"
+jbComponentsResources = "1.11.1"
+jbFoundation = "1.11.1"
 kmpProductFlavors = "2.4.2"
 
 # ── Fork Identity — edit ONLY these 6 lines, then run ./gradlew syncForkConfig ──────────────────
@@ -7,6 +9,8 @@ appId            = "org.mifos.save"   # Android applicationId + iOS bundle ID
 appDisplayName   = "Mifos Save"             # Android app_name, iOS CFBundleDisplayName
 baseNamespace    = "mifos"                       # prefix for all module R-class namespaces
 desktopAppName   = "Mifos Save"             # JVM package name, dock name
+jbMaterial3 = "1.9.0"
+jbMaterialIconsExtended = "1.7.3"
 projectName      = "mifos-save-mobile-app"      # rootProject.name, Fastlane PROJECT_NAME
 iosTeamId        = "L432S2FZP5"               # Apple Developer Team ID
 # ─────────────────────────────────────────────────────────────────────────────────────────────────
@@ -109,7 +113,10 @@ qroseVersion = "1.0.1"
 okioVersion = "3.17.0"
 kermit = "2.0.8"
 fileKit = "0.14.0"
+jbComposeUi = "1.11.1"
 uiBackhandler = "1.11.0"
+jbUiToolingPreview = "1.11.1"
+jbComposeUiUtil = "1.11.1"
 wire = "6.2.0"
 compottie = "2.1.0"
 
@@ -240,6 +247,13 @@ jb-bundle = { module = "org.jetbrains.androidx.core:core-bundle", version.ref = 
 jb-savedstate = { module = "org.jetbrains.androidx.savedstate:savedstate", version.ref = "jbSavedState" }
 jb-composeNavigation = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "composeNavigation" }
 jb-navigation = { module = "org.jetbrains.androidx.navigation:navigation-common", version.ref = "composeNavigation" }
+jb-componentsResources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "jbComponentsResources" }
+jb-composeUi = { module = "org.jetbrains.compose.ui:ui", version.ref = "jbComposeUi" }
+jb-composeUi-util = { module = "org.jetbrains.compose.ui:ui-util", version.ref = "jbComposeUiUtil" }
+jb-foundation = { module = "org.jetbrains.compose.foundation:foundation", version.ref = "jbFoundation" }
+jb-material3 = { module = "org.jetbrains.compose.material3:material3", version.ref = "jbMaterial3" }
+jb-material-icons-extended = { module = "org.jetbrains.compose.material:material-icons-extended", version.ref = "jbMaterialIconsExtended" }
+jb-ui-tooling-preview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "jbUiToolingPreview" }
 
 jetbrains-compose-material3-adaptive = { group = "org.jetbrains.compose.material3.adaptive", name = "adaptive", version.ref = "material3adaptive" }
 jetbrains-compose-material3-adaptive-layout = { group = "org.jetbrains.compose.material3.adaptive", name = "adaptive-layout", version.ref = "material3adaptive" }

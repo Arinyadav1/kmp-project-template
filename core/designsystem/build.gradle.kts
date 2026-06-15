@@ -28,14 +28,14 @@ kotlin {
             // wrapped by MifosTheme picks up the app's branded ScreenState defaults.
             implementation(projects.core.store)
 
-            implementation(compose.ui)
-            implementation(compose.uiUtil)
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material3)
-            implementation(compose.materialIconsExtended)
-            implementation(compose.components.resources)
-            implementation(compose.components.uiToolingPreview)
+            implementation(libs.jb.composeUi)
+            implementation(libs.jb.composeUi.util)
+            implementation(libs.jb.composeRuntime)
+            implementation(libs.jb.foundation)
+            implementation(libs.jb.material3)
+            implementation(libs.jb.material.icons.extended)
+            implementation(libs.jb.componentsResources)
+            implementation(libs.jb.ui.tooling.preview)
 
             implementation(libs.coil.kt.compose)
         }
